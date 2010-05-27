@@ -1,0 +1,22 @@
+0.1 :
+Topic creation
+Post/reply
+View Topic
+Topics list
+
+0.2 :
+Category for Topics
+Users
+Delete post
+Delete Topic
+Edit post
+
+0.3 :
+User registration
+User authentification
+AJAX (Delete, Edit, Open Category, etc.)
+
+0.4 :
+RTE for post/BBcode
+Role for users
+Adminstration/BO
