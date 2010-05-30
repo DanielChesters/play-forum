@@ -1,0 +1,21 @@
+#{extends 'main.html' /} #{set title: topic.title /}
+
+<div>
+<h1>${topic.title}</h1>
+<div>
+#{if topic.posts.size() > 0}
+#{list items:topic.posts , as:'post'}
+<div>#{if post.subtitle}
+<h2>${post.subtitle}</h2>
+#{/if}
+<span>by ${post.author}</span>
+<span>${post.created.format('dd MMM yyyy HH:mm')}</span>
+<p>${post.text}</p>
+#{if post.modified}
+<p><i>modified : ${post.modified.format('dd MMM yyyy HH:mm')}</i></p>
+#{/if}
+</div>
+#{/list}
+#{/if}
+</div>
+</div>
