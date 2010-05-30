@@ -1,4 +1,17 @@
 #{extends 'main.html' /}
 #{set title:'Home' /}
 
-#{welcome /}
+#{if topics.size() > 0}
+    <div class="list">
+      #{list items:topics, as:'topic'}
+          <div class="topic">
+        <h2><a href="@{Application.show(topic.id)}">${topic.title}</a></h2>
+        <div>
+           <span> number posts : ${topic.posts.size()}</span>
+           <span>by ${topic.posts.last().author}</span>
+           <span>${topic.posts.last().modified.format('dd MMM yyyy HH:mm')}</span>
+        </div>
+          </div>
+      #{/list}
+    </div>
+#{/if}
