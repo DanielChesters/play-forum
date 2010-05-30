@@ -1,0 +1,37 @@
+Topic(t1):
+  title:    Test topic
+  created:  2010-05-29T17:30:00Z
+  modified: 2010-05-29T17:30:00Z
+
+Topic(t2):
+  title:    Test topic (bis)
+  created:  2010-05-28T17:30:00Z
+  modified: 2010-05-28T17:30:00Z
+
+Post(p1):
+  subtitle: Test
+  author:   Moi
+  created:  2010-05-29T17:30:00Z
+  modified: 2010-05-29T17:30:00Z
+  topic:    t1
+  text:     >
+            Coucou comment ça va?
+
+
+Post(p2):
+  subtitle: Tu peux pas test
+  author:   Moi
+  created:  2010-05-28T17:30:00Z
+  modified: 2010-05-28T17:30:00Z
+  topic:    t2
+  text:     >
+            Pouet pouet!
+
+Post(p3):
+  subtitle: Hein?
+  author:   Moi
+  created:  2010-05-28T19:00:00Z
+  modified: 2010-05-28T19:00:00Z
+  topic:    t2
+  text:     >
+            o_O
