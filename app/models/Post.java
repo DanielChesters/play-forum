@@ -1,10 +1,12 @@
 package models;
 
-import play.*;
-import play.db.jpa.*;
+import java.util.Date;
 
-import javax.persistence.*;
-import java.util.*;
+import javax.persistence.Entity;
+import javax.persistence.Lob;
+import javax.persistence.ManyToOne;
+
+import play.db.jpa.Model;
 
 @Entity
 public class Post extends Model {
@@ -20,7 +22,6 @@ public class Post extends Model {
     public Topic topic;
 
     public Post(String subtitle, String text, String author) {
-        super();
         this.subtitle = subtitle;
         this.text = text;
         this.author = author;

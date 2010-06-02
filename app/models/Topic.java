@@ -1,10 +1,15 @@
 package models;
 
-import play.*;
-import play.db.jpa.*;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
-import javax.persistence.*;
-import java.util.*;
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.OneToMany;
+import javax.persistence.OrderBy;
+
+import play.db.jpa.Model;
 
 @Entity
 public class Topic extends Model {
@@ -18,18 +23,20 @@ public class Topic extends Model {
     public List<Post> posts;
 
     public Topic(String title) {
-        super();
         this.title = title;
         this.created = new Date();
         this.posts = new ArrayList<Post>();
     }
 
     public Topic addPost(String subtitle, String text, String author) {
-        Post post = new Post(subtitle, text, author).save();
-        posts.add(post);
-        post.topic = this;
+        Post post = new Post(subtitle, text, author);
+        this.posts.add(post);
         this.modified = new Date();
         this.save();
+
+        post.topic = this;
+        post.save();
+
         return this;
     }
 
