@@ -18,4 +18,12 @@ public class Post extends Model {
     public Date modified;
     @ManyToOne
     public Topic topic;
+
+    public Post(String subtitle, String text, String author) {
+        super();
+        this.subtitle = subtitle;
+        this.text = text;
+        this.author = author;
+        this.created = new Date();
+    }
 }
