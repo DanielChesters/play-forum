@@ -27,6 +27,7 @@ public class Topic extends Model {
     public Topic addPost(String subtitle, String text, String author) {
         Post post = new Post(subtitle, text, author).save();
         posts.add(post);
+        post.topic = this;
         this.modified = new Date();
         this.save();
         return this;
