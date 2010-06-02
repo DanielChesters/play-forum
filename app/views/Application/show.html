@@ -32,18 +32,7 @@
         </p>
     #{/ifErrors}
 
-    <p>
-        <label for="author">Your name: </label>
-        <input type="text" name="author" id="author" value="${params.author}" />
-    </p>
-    <p>
-        <label for="subtitle">Subtitle: </label>
-        <input type="text" name="subtitle" id="subtitle" value="${params.subtitle}" />
-    </p>
-    <p>
-        <label for="text">Your message: </label>
-        <textarea name="text" id="text">${params.text}</textarea>
-    </p>
+    #{reply /}
     <p>
         <input type="submit" value="Submit Reply" />
     </p>
