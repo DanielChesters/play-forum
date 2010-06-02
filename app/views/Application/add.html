@@ -1,0 +1,25 @@
+#{extends 'main.html' /}
+#{set title:'add a topic' /}
+
+<div>
+  <h1>New Topic</h1>
+
+#{form @Application.createTopic()}
+
+    #{ifErrors}
+        <p class="error">
+            ${errors[0]}
+        </p>
+    #{/ifErrors}
+
+    <p>
+        <label for="title">Title: </label>
+        <input type="text" name="title" id="title" value="${params.title}" />
+    </p>
+
+    #{reply /}
+    <p>
+        <input type="submit" value="New topic" />
+    </p>
+#{/form}
+</div>
