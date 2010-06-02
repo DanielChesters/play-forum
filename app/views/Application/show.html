@@ -2,6 +2,9 @@
 
 <div>
 <h1>${topic.title}</h1>
+#{if flash.success}
+    <p class="success">${flash.success}</p>
+#{/if}
 <div>
 #{if topic.posts.size() > 0}
 #{list items:topic.posts , as:'post'}
@@ -18,4 +21,33 @@
 #{/list}
 #{/if}
 </div>
+<div>
+<h3>Reply</h3>
+
+#{form @Application.reply(topic.id)}
+
+    #{ifErrors}
+        <p class="error">
+            ${errors[0]}
+        </p>
+    #{/ifErrors}
+
+    <p>
+        <label for="author">Your name: </label>
+        <input type="text" name="author" id="author" value="${params.author}" />
+    </p>
+    <p>
+        <label for="subtitle">Subtitle: </label>
+        <input type="text" name="subtitle" id="subtitle" value="${params.subtitle}" />
+    </p>
+    <p>
+        <label for="text">Your message: </label>
+        <textarea name="text" id="text">${params.text}</textarea>
+    </p>
+    <p>
+        <input type="submit" value="Submit Reply" />
+    </p>
+#{/form}
 </div>
+</div>
+

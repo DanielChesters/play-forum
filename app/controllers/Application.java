@@ -18,4 +18,11 @@ public class Application extends Controller {
         render(topic);
     }
 
+    public static void reply(Long topicId,String author, String subtitle, String text){
+        Topic topic = Topic.findById(topicId);
+        topic.addPost(subtitle, text, author);
+        flash.success("Your reply was posted");
+        show(topicId);
+    }
+
 }
