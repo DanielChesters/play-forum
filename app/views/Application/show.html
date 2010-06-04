@@ -13,7 +13,7 @@
 #{/if}
 <span>by ${post.author}</span>
 <span>${post.created.format('dd MMM yyyy HH:mm')}</span>
-<p>${post.text}</p>
+<p>${post.text.nl2br()}</p>
 #{if post.modified}
 <p><i>modified : ${post.modified.format('dd MMM yyyy HH:mm')}</i></p>
 #{/if}
