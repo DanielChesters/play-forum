@@ -51,14 +51,18 @@ public class Application extends Controller {
      * @param text
      *            text of the post
      */
-    public static void reply(Long topicId, @Required String author,
-            String subtitle, @Required String text) {
+    public static void reply(Long topicId,
+            @Required(message = "You must say you name") String author,
+            String subtitle,
+            @Required(message = "You must say something") String text) {
         Topic topic = Topic.findById(topicId);
-        if (!validation.hasErrors()) {
+        if (validation.hasErrors()){
+            render("Application/show.html", topic);
+        } else {
             topic.addPost(subtitle, text, author);
             flash.success("Your reply was posted");
+            show(topicId);
         }
-        show(topicId);
     }
 
     /**
@@ -71,10 +75,13 @@ public class Application extends Controller {
      * @param text
      *            text of the first post
      */
-    public static void createTopic(@Required String title,
-            @Required String author, String subtitle, @Required String text) {
+    public static void createTopic(
+            @Required(message = "You must have a title") String title,
+            @Required(message = "You must say you name") String author,
+            String subtitle,
+            @Required(message = "You must say something") String text) {
         if (validation.hasErrors()) {
-            index();
+            render("Application/add.html");
         } else {
             Topic topic = new Topic(title);
             topic.addPost(subtitle, text, author);
