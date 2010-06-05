@@ -50,7 +50,7 @@ h1,h2 {
     color: #8C0D17;
 }
 
-.postNumber,.lastAuthor,.lastPost,.postedAt {
+.lastAuthor,.lastPost,.postedAt {
     display: block;
     margin: 5px;
     padding: 5px;
