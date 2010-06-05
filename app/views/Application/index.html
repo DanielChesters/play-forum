@@ -7,12 +7,12 @@
             <div class="topic">
                 <h2><a href="@{Application.show(topic.id)}">
                     ${topic.title}
-                    (#{if topic.posts.size()==1}
-                        <span class="postNumber">1 post</span>
+                    #{if topic.posts.size()==1}
+                        (<span class="postNumber">1 post</span>)
                     #{/if}
                     #{else}
-                        <span class="postNumber">${topic.posts.size()} posts</span>
-                    #{/else})
+                        (<span class="postNumber">${topic.posts.size()} posts</span>)
+                    #{/else}
                 </a></h2>
                 <div class="topicInfo">
                     <span class="lastAuthor">Last post by ${topic.posts.last().author}</span>
