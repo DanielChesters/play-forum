@@ -44,7 +44,7 @@ h1,h2 {
     padding: 5px;
 }
 
-.postAuthor {
+.postAuthor,.lastAuthor {
     display: inline;
     background-color: #D93D04;
     color: #8C0D17;
@@ -56,7 +56,7 @@ h1,h2 {
     padding: 5px;
 }
 
-.postedAt {
+.postedAt,.lastPost {
     font-size: 10px;
     background-color: #7C8C03;
 }
