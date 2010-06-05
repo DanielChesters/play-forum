@@ -1,0 +1,69 @@
+@import url(http://fonts.googleapis.com/css?family=Droid+Sans);
+
+html {
+    font-family: 'Droid Sans', arial, sans;
+    background-color: #A9BF04;
+}
+
+.topic,.post {
+    color: #223F20;
+    margin: 5px;
+    padding: 5px;
+    border: 1px dashed #7C8C03;
+}
+
+a {
+    color: #D93D04;
+    text-decoration: none;
+}
+
+a:hover {
+    background-color: #D93D04;
+    color: #8C0D17;
+    text-decoration: none;
+}
+
+h1,h2 {
+    color: #8C0D17;
+}
+
+.form {
+    background-color: #7C8C03;
+    padding: 5px;
+}
+
+.error {
+    background-color: #8C0D17;
+    margin: 5px;
+    padding: 5px;
+}
+
+.success,.postText {
+    background-color: #7C8C03;
+    margin: 5px;
+    padding: 5px;
+}
+
+.postAuthor {
+    display: inline;
+    background-color: #D93D04;
+    color: #8C0D17;
+}
+
+.postNumber,.lastAuthor,.lastPost,.postedAt {
+    display: block;
+    margin: 5px;
+    padding: 5px;
+}
+
+.postedAt {
+    font-size: 10px;
+    background-color: #7C8C03;
+}
+
+.link {
+    color: #D93D04;
+    border: 2px solid;
+    margin: 5px;
+    padding: 5px;
+}
