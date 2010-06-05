@@ -1,42 +1,40 @@
-#{extends 'main.html' /} #{set title: topic.title /}
-
-<div>
+#{extends 'main.html' /}
+#{set title: topic.title /}
+<div class="body">
 <h1>${topic.title}</h1>
-#{if flash.success}
-    <p class="success">${flash.success}</p>
-#{/if}
-<div>
-#{if topic.posts.size() > 0}
-#{list items:topic.posts , as:'post'}
-<div>#{if post.subtitle}
-<h2>${post.subtitle}</h2>
-#{/if}
-<span>by ${post.author}</span>
-<span>${post.created.format('dd MMM yyyy HH:mm')}</span>
-<p>${post.text.nl2br()}</p>
-#{if post.modified}
-<p><i>modified : ${post.modified.format('dd MMM yyyy HH:mm')}</i></p>
-#{/if}
+    #{if flash.success}
+        <p class="success">${flash.success}</p>
+    #{/if}
+    <div class="list">
+        #{if topic.posts.size() > 0}
+            #{list items:topic.posts , as:'post'}
+                <div class="post">
+                    #{if post.subtitle}
+                        <h2>${post.subtitle}</h2>
+                    #{/if}
+                    <div class="postInfo">
+                        <span class="postAuthor">by ${post.author}</span>
+                        <span class="postedAt">${post.created.format('dd MMM yyyy HH:mm')}</span>
+                    </div>
+                    <p class="postText">${post.text.nl2br()}</p>
+                    #{if post.modified}
+                        <p class="ModifiedPost">modified : ${post.modified.format('dd MMM yyyy HH:mm')}</p>
+                    #{/if}
+                </div>
+            #{/list}
+        #{/if}
+    </div>
+    <div class="form">
+        <h3>Reply</h3>
+        #{form @Application.reply(topic.id)}
+            #{ifErrors}
+                <p class="error">${errors[0]}</p>
+            #{/ifErrors}
+            #{reply /}
+            <p class="submit"><input type="submit" value="Submit Reply" /></p>
+        #{/form}
+    </div>
+    <div class="link">
+        #{a @Application.index()}Back to list#{/a}
+    </div>
 </div>
-#{/list}
-#{/if}
-</div>
-<div>
-<h3>Reply</h3>
-
-#{form @Application.reply(topic.id)}
-
-    #{ifErrors}
-        <p class="error">
-            ${errors[0]}
-        </p>
-    #{/ifErrors}
-
-    #{reply /}
-    <p>
-        <input type="submit" value="Submit Reply" />
-    </p>
-#{/form}
-</div>
-</div>
-

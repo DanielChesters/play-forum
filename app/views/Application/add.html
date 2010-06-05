@@ -1,25 +1,30 @@
 #{extends 'main.html' /}
 #{set title:'add a topic' /}
 
-<div>
-  <h1>New Topic</h1>
+<div class="body">
+    <h1>New Topic</h1>
 
-#{form @Application.createTopic()}
+    #{form @Application.createTopic()}
 
-    #{ifErrors}
-        <p class="error">
-            ${errors[0]}
+        #{ifErrors}
+            <p class="error">
+                ${errors[0]}
+            </p>
+        #{/ifErrors}
+
+        <p class="titlePost">
+            <label for="title">Title: </label>
+            <input type="text" name="title" id="title" value="${params.title}" />
         </p>
-    #{/ifErrors}
 
-    <p>
-        <label for="title">Title: </label>
-        <input type="text" name="title" id="title" value="${params.title}" />
-    </p>
+        #{reply /}
 
-    #{reply /}
-    <p>
-        <input type="submit" value="New topic" />
-    </p>
-#{/form}
+        <p class="submit">
+            <input type="submit" value="New topic" />
+        </p>
+    #{/form}
+
+    <div class="link">
+        #{a @Application.index()}Back to list#{/a}
+    </div>
 </div>
