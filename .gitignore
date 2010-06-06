@@ -5,3 +5,5 @@ eclipse/
 tmp/
 test-result
 db
+cobertura.ser
+logs
