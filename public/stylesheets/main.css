@@ -67,3 +67,8 @@ h1,h2 {
     margin: 5px;
     padding: 5px;
 }
+
+.postNumber {
+    font-size: 12px;
+    font-style: normal;
+}
