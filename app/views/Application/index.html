@@ -8,10 +8,10 @@
                 <h2><a href="@{Application.show(topic.id)}">
                     ${topic.title}
                     #{if topic.posts.size()==1}
-                        (<span class="postNumber">1 post</span>)
+                        <span class="postNumber">(1 post)</span>
                     #{/if}
                     #{else}
-                        (<span class="postNumber">${topic.posts.size()} posts</span>)
+                        <span class="postNumber">(${topic.posts.size()} posts)</span>
                     #{/else}
                 </a></h2>
                 <div class="topicInfo">
@@ -22,6 +22,11 @@
             #{/list}
         </div>
     #{/if}
+    #{else}
+        <div class="message">
+            <p>The forum have any topic for the moment, you can create a topic.</p>
+        </div>
+    #{/else}
     <div class="link">
         <a href="@{Application.add}">Add a topic</a>
     </div>
